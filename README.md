@@ -1,4 +1,4 @@
-![](assets/20250502_132420_DataHubmv-avg-v1.jpg)
+
 
 # Statefull-DataHub-Blog
 
@@ -15,7 +15,7 @@ Until recently Datahub was only able to process messages **stateless**, solely o
 # As an example a Datahub flow
 
 asd
-
+![](assets/20250502_132420_DataHubmv-avg-v1.jpg)
 asd
 
 # Putting it all together
