@@ -1,6 +1,6 @@
 # Statefull-DataHub-Blog
 
-a repo accompanying the Statefull-DataHub-Blog by Kamiel Straatman
+This repo is accompanying the Statefull-DataHub-Blog by Kamiel Straatman
 
 # What Datahub is
 
@@ -12,9 +12,21 @@ Until recently Datahub was only able to process messages **stateless**, solely o
 
 # Commands
 
-This repo provides the nessesairy files to define schema's for data validation, scripting for data transforming and the policies to tie it all together.
+This repo provides the nessesairy files to define schema's for data validation, scripting for data transforming and the policies to tie it all together. Just clone them in a working directory of your choise.
 
-Please install a HiveMQ broker and enable it's DataHub functionality for testing:
+Please install and run a [HiveMQ broker](https://hwww.hivemq.com/download/) and add the following to your conf/config.xml file
+```
+<rest-api>
+    <enabled>true</enabled>
+    <listeners>
+        <http>
+            <port>8888</port>
+            <bind-address>0.0.0.0</bind-address>
+        </http>
+    </listeners>
+</rest-api>
+```
+Now enable the brokers DataHub functionality for testing:
 
 `curl -X POST localhost:8888/api/v1/data-hub/management/start-trial`
 
@@ -26,7 +38,6 @@ mqtt hivemq schema create --id=temp_avg_schema  --file temp_avg_schema.json --ty
 mqtt hivemq script create -i moving_avg --file moving_avg.js --type TRANSFORMATION
 mqtt hivemq data-policy create --file data-policy-Calculate-mov-avg.json
 ```
-
 s
 
 `mqtt shell / connect / pub -t test -m '{ "temperature": 20}'`
