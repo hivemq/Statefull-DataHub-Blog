@@ -1,0 +1,63 @@
+{
+  "id" : "Calculate-mov-avg",
+  "matching" : {
+    "topicFilter" : "#"
+  },
+  "validation" : {
+    "validators" : [ {
+      "type" : "schema",
+      "arguments" : {
+        "strategy" : "ALL_OF",
+        "schemas" : [ {
+          "schemaId" : "temp_schema",
+          "version" : "latest"
+        } ]
+      }
+    } ]
+  },
+  "onSuccess" : {
+    "pipeline" : [ {
+      "id" : "operation-2cwY1",
+      "functionId" : "System.log",
+      "arguments" : {
+        "level" : "WARN",
+        "message" : "Incoming message on ${topic} from ${clientId} matched schema"
+      }
+    }, {
+      "id" : "operation-JZJHl",
+      "functionId" : "Serdes.deserialize",
+      "arguments" : {
+        "schemaVersion" : "latest",
+        "schemaId" : "temp_schema"
+      }
+    }, {
+      "id" : "operation-V64H5",
+      "functionId" : "fn:moving_avg:latest",
+      "arguments" : { }
+    }, {
+      "id" : "operation-zJ1GK",
+      "functionId" : "Serdes.serialize",
+      "arguments" : {
+        "schemaVersion" : "latest",
+        "schemaId" : "temp_avg_schema"
+      }
+    } ]
+  },
+  "onFailure" : {
+    "pipeline" : [ {
+      "id" : "operation-Wpo8d",
+      "functionId" : "System.log",
+      "arguments" : {
+        "level" : "WARN",
+        "message" : "Incoming payload from ${clientId} from ${clientId}  did not match schema definition, redirecting to Poison Queue ..."
+      }
+    }, {
+      "id" : "operation-tuBJN",
+      "functionId" : "Delivery.redirectTo",
+      "arguments" : {
+        "topic" : "PoisonQ",
+        "applyPolicies" : false
+      }
+    } ]
+  }
+}
