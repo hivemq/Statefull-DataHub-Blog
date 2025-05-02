@@ -1,3 +1,5 @@
+![](assets/20250502_132420_DataHubmv-avg-v1.jpg)
+
 # Statefull-DataHub-Blog
 
 This repo is accompanying the Statefull-DataHub-Blog by Kamiel Straatman
@@ -14,11 +16,7 @@ Until recently Datahub was only able to process messages **stateless**, solely o
 
 asd
 
-
-![](assets/20250502_132039_HiveMQ_DataHub   Add timestamps.jpg)
-
 asd
-
 
 # Putting it all together
 
