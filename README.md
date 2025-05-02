@@ -15,6 +15,7 @@ Until recently Datahub was only able to process messages **stateless**, solely o
 This repo provides the nessesairy files to define schema's for data validation, scripting for data transforming and the policies to tie it all together. Just clone them in a working directory of your choise.
 
 Please install and run a [HiveMQ broker](https://hwww.hivemq.com/download/) and add the following to your conf/config.xml file
+
 ```
 <rest-api>
     <enabled>true</enabled>
@@ -26,11 +27,12 @@ Please install and run a [HiveMQ broker](https://hwww.hivemq.com/download/) and 
     </listeners>
 </rest-api>
 ```
-Now enable the brokers DataHub functionality for testing:
+
+Now enable the brokers DataHub functionality for testing ... :
 
 `curl -X POST localhost:8888/api/v1/data-hub/management/start-trial`
 
-Now upload all the nessesary assets by using the [HiveMQ CLI](https://github.com/hivemq/mqtt-cli).
+... and upload all the nessesary assets by using the [HiveMQ CLI](https://github.com/hivemq/mqtt-cli).
 
 ```
 mqtt hivemq schema create --id=temp_schema  --file temp_schema.json --type json
@@ -38,9 +40,10 @@ mqtt hivemq schema create --id=temp_avg_schema  --file temp_avg_schema.json --ty
 mqtt hivemq script create -i moving_avg --file moving_avg.js --type TRANSFORMATION
 mqtt hivemq data-policy create --file data-policy-Calculate-mov-avg.json
 ```
-s
 
-`mqtt shell / connect / pub -t test -m '{ "temperature": 20}'`
+By entering the interactive mode of HiveMQ CLI using the `mqtt shell` command. Than connect and publish a (number of subsequent ) JSON messages containing a different temperature value `pub -t test -m '{ "temperature": 20}'`. Monitor the output by subscribing to your broker : `mqtt sub -t "#"`.
+
+
 
 # See it working
 
