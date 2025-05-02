@@ -8,8 +8,7 @@ HiveMQ DataHub  is an integrated policy and data transformation engine that vali
 
 # Whats new.
 
-Until recently Datahub was only able to process messages stateless, so to say, solely operating  on a single message. But that has changed. As HiveMQ is moving more and more into the data value stream our datahub has evolved as well and now can also work in stateful operation modes. All with the same ease of defining, and configuring as you’re used to.
-
+Until recently Datahub was only able to process messages **stateless**, solely operating on a single message. But that has changed. As HiveMQ is moving more and more into the data value stream our datahub has evolved as well and now can also work in **stateful operation modes**. All with the same ease of defining, and configuring as you’re used to.
 
 # Commands
 
@@ -19,19 +18,18 @@ Please install a HiveMQ broker and enable it's DataHub functionality for testing
 
 `curl -X POST localhost:8888/api/v1/data-hub/management/start-trial`
 
-d
+Now upload all the nessesary assets by using the [HiveMQ CLI](https://github.com/hivemq/mqtt-cli).
 
 ```
-
-
 mqtt hivemq schema create --id=temp_schema  --file temp_schema.json --type json
 mqtt hivemq schema create --id=temp_avg_schema  --file temp_avg_schema.json --type json
 mqtt hivemq script create -i moving_avg --file moving_avg.js --type TRANSFORMATION
-mqtt hivemq data-policy create --file data-policy-Calculate-mov-avg.json                                    
-
-mqtt shell / connect / pub -t test -m '{ "temperature": 20}'
-
+mqtt hivemq data-policy create --file data-policy-Calculate-mov-avg.json
 ```
+
+s
+
+`mqtt shell / connect / pub -t test -m '{ "temperature": 20}'`
 
 # See it working
 
