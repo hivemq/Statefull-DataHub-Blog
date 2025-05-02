@@ -19,13 +19,13 @@ In the example used in the blog we discuss three aspect of the new datahub capab
 * Statefulness message handling.
 
 **Contextualisation** in MQTT means enriching messages with extra information (like device type, location, or timestamps) to make them more meaningful. It helps subscribers interpret raw data correctly without needing separate lookups.
-So we use datahub to add timestamp data, that is unknown to the simple sensor, to the consumer ready-dataframe.
-
+So we use in this example datahub to add timestamp data, that is unknown to the simple sensor, to the consumer ready-dataframe.
 
 **Conversion** is the process of converting source data that is not the format that is expected by the backend. For example we simulate a device that reports a temperature in Fahrenheit but that information needs to be consumed in degrees Celsius.
-So we use datahub to convert from one metric to another.
+So we can use datahub to convert from one metric to another although not integrated in  this example.
 
 We use the **Statefulness** features of HiveMQ datahub to calculate a moving average along incoming temperature values. A moving average smooths out fluctuations in data by averaging values over a sliding window. It’s used to reveal trends by reducing the impact of short-term variations. A moving average needs to take into account not only the current value but also a number of previous transmitted values.
+
 
 ![](assets/20250502_132420_DataHubmv-avg-v1.jpg)
 asd
