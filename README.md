@@ -43,8 +43,8 @@ mqtt hivemq data-policy create --file data-policy-Calculate-mov-avg.json
 
 By entering the interactive mode of HiveMQ CLI using the `mqtt shell` command. Than connect and publish a (number of subsequent ) JSON messages containing a different temperature value `pub -t test -m '{ "temperature": 20}'`. Monitor the output by subscribing to your broker : `mqtt sub -t "#"`.
 
-
-
 # See it working
 
 ![](assets/20250502_110115_Mov-avg-v2.gif)
+
+As shown above the script will add the temperatures to a list containinging a maximum of 6 values and will calculate the average over these values. A moving average is a statistical method that calculates the average of a data set over a specified number of periods, continuously updating as new data is added ans smoothing out peaks in the incomming data.
