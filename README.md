@@ -75,6 +75,6 @@ Than the broker based script will calculate the average over these values.
 
 A moving average is a statistical method that calculates the average of a data set over a specified number of periods, continuously updating as new data is added ans smoothing out peaks in the incomming data.
 
-The output data will be contextualised by adding a timestamp field. Subscribing to the '#" will reveal all the output.
+The output data will be contextualised by adding a timestamp field. Subscribing to the '#" will reveal all the output. as can be seen in the left window.
 
 The HiveMQ broker GUI also gives you great insight into the inner workings of datahub. Please check the out to point your browser to http://127.0.0.1:8080
