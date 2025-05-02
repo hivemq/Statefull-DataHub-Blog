@@ -28,7 +28,7 @@ We use the **Statefulness** features of HiveMQ datahub to calculate a moving ave
 
 
 ![](assets/20250502_132420_DataHubmv-avg-v1.jpg)
-asd
+Above the desired input-data validation, payload transformation and JSON output.
 
 # Putting it all together
 
