@@ -12,7 +12,7 @@ Until recently Datahub was only able to process messages **stateless**, solely o
 
 # Commands
 
-This repo provides the nessesairy files to define schema's for data validation, scripting for data transforming and the policies to tie it all together. Just clone them in a working directory of your choise.
+This repo provides the nessesairy files to define schema's for data validation, scripting for data transforming and the policies to tie it all together. Just clone it in a working directory of your choise.
 
 Please install and run a [HiveMQ broker](https://hwww.hivemq.com/download/) and add the following to your conf/config.xml file
 
@@ -47,4 +47,6 @@ By entering the interactive mode of HiveMQ CLI using the `mqtt shell` command. T
 
 ![](assets/20250502_110115_Mov-avg-v2.gif)
 
-As shown above the script will add the temperatures to a list containinging a maximum of 6 values and will calculate the average over these values. A moving average is a statistical method that calculates the average of a data set over a specified number of periods, continuously updating as new data is added ans smoothing out peaks in the incomming data.
+As shown above, the policy and script will add the temperatures, send to "topicFilter" : "#", to a list containinging a maximum of 6 values and will calculate the average over these values. A moving average is a statistical method that calculates the average of a data set over a specified number of periods, continuously updating as new data is added ans smoothing out peaks in the incomming data.
+
+The HiveMQ broker GUI also gives you great insight into the inner workings of datahub. Please check the out to poit your browser to http://127.0.0.1:8080
