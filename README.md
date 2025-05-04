@@ -26,7 +26,6 @@ So we can use datahub to convert from one metric to another although not integra
 
 We use the **Statefulness** features of HiveMQ datahub to calculate a moving average along incoming temperature values. A moving average smooths out fluctuations in data by averaging values over a sliding window. It’s used to reveal trends by reducing the impact of short-term variations. A moving average needs to take into account not only the current value but also a number of previous transmitted values.
 
-
 ![](assets/20250502_132420_DataHubmv-avg-v1.jpg)
 Above the desired input-data validation, payload transformation and JSON output.
 
@@ -34,7 +33,7 @@ Above the desired input-data validation, payload transformation and JSON output.
 
 This repo provides the nessesairy files to define schema's for data validation, scripting for data transforming and the policies to tie it all together. Just clone it in a working directory of your choise.
 
-**This repo provides the necessary files to define schemas for data validation, scripting for data transforming and the policies to tie it all together. Just clone them in a working directory of your choice.
+This repo provides the necessary files to define schemas for data validation, scripting for data transforming and the policies to tie it all together. Just clone it into a working directory of your choice.
 
 Please install and run a [HiveMQ broker](https://hwww.hivemq.com/download/) and add the following to your conf/config.xml file
 
