@@ -62,7 +62,7 @@ mqtt hivemq script create -i moving_avg --file moving_avg.js --type TRANSFORMATI
 mqtt hivemq data-policy create --file data-policy-Calculate-mov-avg.json
 ```
 
-By entering the interactive mode of HiveMQ CLI using the `mqtt shell` command. Than connect and publish a (number of subsequent ) JSON messages containing a different temperature value `pub -t test -m '{ "temperature": 20}'`. Monitor the output by subscribing to your broker : `mqtt sub -t "#"`.
+By entering the interactive mode of HiveMQ CLI using the `mqtt shell` command followed by the the `connect` command. Than publish a (number of subsequent ) JSON messages containing a different temperature value `pub -t test -m '{ "temperature": 20}'`. Monitor the output by subscribing to your broker : `mqtt sub -t "#"`.
 
 # See it working
 
